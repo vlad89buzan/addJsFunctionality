@@ -8,6 +8,8 @@ import calc from './modules/calc';
 import filter from './modules/filter';
 import pictureSize from './modules/pictureSize';
 import accordion from './modules/accordion';
+import burger from './modules/burger';
+import scrolling from './modules/scrolling';
 
 window.addEventListener("DOMContentLoaded", () => {
   modal(".button-design", ".popup-design", ".popup-design .popup-close");
@@ -38,4 +40,6 @@ window.addEventListener("DOMContentLoaded", () => {
   filter();
   pictureSize('.sizes-block');
   accordion('.accordion-heading','.accordion-block');
+  burger('.burger-menu','.burger');
+  scrolling('.pageup');
 });
