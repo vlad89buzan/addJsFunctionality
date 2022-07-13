@@ -102,6 +102,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_checkTextInputs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/checkTextInputs */ "./src/js/modules/checkTextInputs.js");
 /* harmony import */ var _modules_showMoreStyles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/showMoreStyles */ "./src/js/modules/showMoreStyles.js");
 /* harmony import */ var _modules_calc__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/calc */ "./src/js/modules/calc.js");
+/* harmony import */ var _modules_filter__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/filter */ "./src/js/modules/filter.js");
+
 
 
 
@@ -122,6 +124,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   Object(_modules_showMoreStyles__WEBPACK_IMPORTED_MODULE_5__["default"])('.button-styles', '#styles .row');
   Object(_modules_calc__WEBPACK_IMPORTED_MODULE_6__["default"])('#size', '#material', '#options', '.promocode', '.calc-price');
+  Object(_modules_filter__WEBPACK_IMPORTED_MODULE_7__["default"])();
 });
 
 /***/ }),
@@ -186,6 +189,90 @@ const checkTextInputs = selector => {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (checkTextInputs);
+
+/***/ }),
+
+/***/ "./src/js/modules/filter.js":
+/*!**********************************!*\
+  !*** ./src/js/modules/filter.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const filter = () => {
+  const menu = document.querySelector(".portfolio-menu");
+  const items = menu.querySelectorAll("li");
+  const btnAll = menu.querySelector(".all");
+  const btnLovers = menu.querySelector(".lovers");
+  const btnChef = menu.querySelector(".chef");
+  const btnGirl = menu.querySelector(".girl");
+  const btnGuy = menu.querySelector(".guy");
+  const btnGrandmother = menu.querySelector(".grandmother");
+  const btnGranddad = menu.querySelector(".granddad");
+  const wrapper = document.querySelector(".portfolio-wrapper");
+  const markAll = wrapper.querySelectorAll(".all");
+  const markLovers = wrapper.querySelectorAll(".lovers");
+  const markChef = wrapper.querySelectorAll(".chef");
+  const markGirl = wrapper.querySelectorAll(".girl");
+  const markGuy = wrapper.querySelectorAll(".guy");
+  const no = document.querySelector(".portfolio-no");
+
+  const typeFilter = markType => {
+    markAll.forEach(mark => {
+      mark.style.display = "none";
+      mark.classList.remove("animated", "fadeIn");
+    });
+    no.style.display = "none";
+    no.classList.remove("animated", "fadeIn");
+
+    if (markType) {
+      markType.forEach(mark => {
+        mark.style.display = "block";
+        mark.classList.add("animated", "fadeIn");
+      });
+    } else {
+      no.style.display = "block";
+      no.classList.add("animated", "fadeIn");
+    }
+  };
+
+  btnAll.addEventListener("click", () => {
+    typeFilter(markAll);
+  });
+  btnLovers.addEventListener("click", () => {
+    typeFilter(markLovers);
+  });
+  btnChef.addEventListener("click", () => {
+    typeFilter(markChef);
+  });
+  btnGirl.addEventListener("click", () => {
+    typeFilter(markGirl);
+  });
+  btnGuy.addEventListener("click", () => {
+    typeFilter(markGuy);
+  });
+  btnAll.addEventListener("click", () => {
+    typeFilter(markAll);
+  });
+  btnGrandmother.addEventListener("click", () => {
+    typeFilter();
+  });
+  btnGranddad.addEventListener("click", () => {
+    typeFilter();
+  });
+  menu.addEventListener("click", e => {
+    let target = e.target;
+
+    if (target && target.tagName == "LI") {
+      items.forEach(item => item.classList.remove('active'));
+      target.classList.add('active');
+    }
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (filter);
 
 /***/ }),
 
