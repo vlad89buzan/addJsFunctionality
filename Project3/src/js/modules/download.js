@@ -1,32 +1,28 @@
-import { preventExtensions } from "core-js/core/object";
-
 export default class Download {
-  constructor(triggers) {
-    this.btns = document.querySelectorAll(triggers);
-    this.path = "assets/img/mainbg.jpg";
-  }
+    constructor(triggers) {
+        this.btns = document.querySelectorAll(triggers);
+        this.path = 'assets/img/mainbg.jpg';
+    }
 
-  downloadItem(path) {
-    const element = document.createElement("a");
+    downloadItem(path) {
+        const element = document.createElement('a');
 
-    element.setAttribute("href", path);
-    element.setAttribute("download", "nice_picture");
+        element.setAttribute('href', path);
+        element.setAttribute('download', 'nice_picture');
 
-    element.style.display = "none";
-    document.body.appendChild(element);
-    element.addEventListener("click.", (e) => {
-      e.preventDefault();
-    });
-    element.click();
+        element.style.display = 'none';
+        document.body.appendChild(element);
 
-    document.body.removeChild(element);
-  }
+        element.click();
 
-  init() {
-    this.btns.forEach((item) => {
-      item.addEventListener("click", () => {
-        this.downloadItem(this.path);
-      });
-    });
-  }
+        document.body.removeChild(element);
+    }
+
+    init() {
+        this.btns.forEach(item => {
+            item.addEventListener('click', () => {
+                this.downloadItem(this.path);
+            });
+        });
+    }
 }
